@@ -1,0 +1,18 @@
+{
+  "name": "veyrath",
+  "private": true,
+  "workspaces": ["shared", "server", "client"],
+  "version": "0.1.0",
+  "description": "VEYRATH — MMORPG online de fantasia, aventura e economia viva (primeira versão jogável)",
+  "scripts": {
+    "dev:server": "cd server && npm run dev",
+    "dev:client": "cd client && npm run dev",
+    "db:migrate": "cd server && npm run migrate",
+    "db:seed": "cd server && npm run seed",
+    "test": "cd server && npm test && cd ../client && npm test"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT"
+}

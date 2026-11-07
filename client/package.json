@@ -1,0 +1,21 @@
+{
+  "name": "@veyrath/client",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "test": "echo \"cliente: sem testes automatizados ainda\""
+  },
+  "dependencies": {
+    "@veyrath/shared": "file:../shared",
+    "phaser": "^3.85.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.4",
+    "vite": "^5.4.0",
+    "@types/node": "^22.0.0"
+  }
+}
