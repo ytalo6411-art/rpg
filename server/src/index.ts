@@ -35,6 +35,22 @@ const HOST = process.env.HOST || "0.0.0.0";
 const app = express();
 app.use(express.json());
 
+// CORS — permite que o frontend (Vercel ou outro domínio) chame a API e o WebSocket
+const CLIENT_ORIGIN = process.env.CLIENT_ORIGIN || "*";
+app.use((_req, res, next) => {
+  res.header("Access-Control-Allow-Origin", CLIENT_ORIGIN);
+  res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Content-Type, Authorization"
+  );
+  if (_req.method === "OPTIONS") {
+    res.status(204).end();
+    return;
+  }
+  next();
+});
+
 const httpServer = createServer(app);
 const wss = new WebSocketServer({ server: httpServer, path: "/ws" });
 
